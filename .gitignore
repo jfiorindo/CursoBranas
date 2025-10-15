@@ -1,1 +1,4 @@
-node_modules
+# no topo do arquivo
+node_modules/
+# se for monorepo (múltiplas pastas)
+**/node_modules/
