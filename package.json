@@ -1,18 +1,22 @@
 {
-  "name": "cursobranas",
+  "name": "trading_platform",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/jfiorindo/CursoBranas.git",
+  "author": "João Pedro Fiorindo <joaopedrofiorindopinto@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "main": "tsc && "
+    "docker:build": "docker build -t cccat22_backend docker",
+    "docker:run": "docker run -it -v %cd%:/app cccat22_backend bash"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
+    "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
+    "axios": "^1.12.2",
+    "express": "^5.1.0",
     "jest": "^30.2.0",
+    "nodemon": "^3.1.10",
+    "pg-promise": "^12.2.0",
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
