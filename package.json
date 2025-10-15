@@ -12,10 +12,10 @@
     "_comment2": "o docker:run serve para rodar o docker",
     "compose:up": "docker compose -f docker/docker-compose.yaml up -d --build",
     "_comment3": "o compose:up serve para subir o nosso docker ja com o docker-compose, assim não tem que rodar tudo no comando, apenas aponta pro composer e lá tem as instruções que forem precisas para rodar nosso container",
-    "compose:down": "o compose -f docker/docker-compose.yaml -v down",
+    "compose:down": "docker compose -f docker/docker-compose.yaml -v down",
     "_comment4": "o compose:down serve para fechar o container que a gente abriu ",
     "compose:exec": "docker compose -f docker/docker-compose.yaml exec -it backend bash",
-    "_comment5": "o compose:exec serve para nós termos acesso a algum serviço que já esta rodando, se rodar ele antes do nosso composer:up ele não irá rodar "
+    "_comment5": "o compose:exec serve para nós termos acesso a algum serviço que já esta rodando, se rodar ele antes do nosso composer:up ele não irá "
 
 
   },
