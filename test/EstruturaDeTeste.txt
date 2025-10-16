@@ -1,0 +1,52 @@
+*Estrutura*
+
+Given/Arrange: Definir as infos e parâmetros necessárias para executar o que vai ser testado, por exemplo se for uma soma, deverá haver os valores a serem somados
+
+When/Act: É chamar o que vai ser executado, executar a soma no caso
+
+Then/Assert: Verificar a saída e o resultado que tivemos após definir os dados e rodar o When/Act, comparando os valores que deveriam ser esperados com os valores reais que foram retornados.
+
+O terceiro passo deve ser sempre bem feito, para evitar que resultados simples já liberem o teste como aprovado sendo que testes mais aprofundados podem ser descobertos se procurados melhor.
+
+
+*conceito FIRST:*
+
+(F)ast: Os testes devem rodar rápido (quanto mais lento mais chato de executar então maior a chance de o dev skipar sse teste por conta de demora. O tipo de teste a ser executado fica a mando do desenvolvedor escolher e conseguir balancear para ver quais testes se encaixam tendo o maior nível de aproveitamento com a maior velocidade possível)
+
+(I)ndependent: Não existir dependência entre os testes, eles devem poder ser executados de forma isolada (Isso principalmente por conta da demora, pois se um teste depende do outro para rodar, ele deverá esperar todo o processo de execução do anterior para ser executado, sendo que ele já poderia ter sido iniciado se fosse independente. Caso o 3 de 6 testes quebre, para rodar novamente terá de começar tudo do 0, sendo que se fossem separados era só arrumar o erro do teste 3 e rodar novamente aquele mesmo)
+
+(R)eapetable: O resultado deve serr o mesmo independente da quantidade de vezes que seja executado (independente de onde, quando, como e por quem o teste seja executado, ele deverá ter o mesmo resultado, então um teste confiável deverá ter o mesmo resultado sempre)
+
+(S)elf-validating: O própro teste deve ter uma saída bem definida, que e valida ou não fazendo com que ele passe ou falhe (Assim o teste deve ser capaz de dizer se ele passou ou não, então seria como você fizesse a primeira e a segunda parte (arrange e when) porém deixou a principal parte do teste para fazer com seus olhos, sendo que para maior acertividade dever ser feito de forma automática por mais que seja apenas um resultado simples, o teste deve retornar se o resultado é certo ou errado.)
+
+(T)imely: Os testes devem ser escritos antes do código-fonte (essa é para TDD basicamente, porém é uma boa prática para manter o código igual o original e evitar fuga do que foi definido.)
+
+Quando você está desenvolvendo: sair do ciclo vicioso e tentar deixar o mais automatizado possível, sem digital dados, dar select no banco e etc... tentar sempre automatizar tudo. Mas tudo tem que estar alinhado para conseguir fazer isso, arquitetura, estrutura e também disciplina para fazer o código com base no teste. Por isso sempre escrever os testes e ai com base nisso do teste escrito desenvolver o código.
+
+quanto mais linhas você escreve, mais tempo você testa, então perder tempo no começo para escrever o teste, no futuro você terá lucro de tempo pois ao invés de ter que fazer 40 tarefas para testar tudo, será tudo executado em coisa de segundos.
+
+*Como funciona o TDD?*
+
+É um método para construir o software, não para testá-lo
+
+Você costrói o software em cima dos testes, ja tendo o que você espera e necessita antes de começar
+
+
+Ciclo:
+
+1. Escreve um teste que falha
+2. Faz o código funcionar
+3. Refatora e elimina redundância
+
+isso é um ciclo de pequenos passos, sempre evoluindo aos poucos e mantendo a constância.
+
+REGRAS DO TDD:
+
+1. Você não pode escrever nenhum código atéter escrito um teste que detecte uma possível falha. (Ou seja a gente não pode escrever a função de soma, sem antes ter um teste que vá checkar se 2+2 é 4)
+
+2. Você não pode escrever mais testes de unidade que o suficiente para detectar a falha. (Se nosso primeiro passo é a soma, não devemos criar um teste que detecta erro de soma, multiplicação e divisão, Apenas 1 teste para soma e a cada passo que vamos adiante, criar um novo teste)
+
+3. Você não pode escrever mais código do que o suficiente para passar no teste. (Basicamente o anterior só que ao contrário, do mesmo jeito que não deve ser escrito um teste para um código que não iremos fazer agora, não deve existir um código para um teste que não foi feito.)
+
+Conclusão das regras: Os testes devem ser escritos antes do código e devem conter apenas as funcionalidades que vão ser criadas agora. O código deve ser feito após o teste e deve conter apenas a funcionalidade necessária para passar nesse teste.
+
