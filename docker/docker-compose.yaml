@@ -4,12 +4,17 @@ services: #quais serviços vão ser executados, para não ter que executar um po
       context: . #executa o docker file, esse . significa que é para o docker procurar pelo Dockerfile na mesma pasta, se não era só apontar para qual pasta ele estivesse
     volumes:
       - ..:/app #.. = um diretório antes de docker
+    ports:
+      - 3000:3000 # é a porta em que irá rodar o express do main
     working_dir: /app #ja entrar direto no /app quando buildar ou rodar o container
     command: sleep infinity #para não deixar o docker fechar o container pois não temos nada rodando nele, coloca o container para dormir
+    stop_grace_period: 2s #tempo que o docker vai demorar para baixar o container
   db: #buildar banco de dados (images = qual db vamos usar, portas e o ambiente (User,senha e a db))
     image: postgres:14.3
     ports:
       - 5432:5432
+    volumes:
+      - ../database/create.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456

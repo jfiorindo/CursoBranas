@@ -50,3 +50,11 @@ REGRAS DO TDD:
 
 Conclusão das regras: Os testes devem ser escritos antes do código e devem conter apenas as funcionalidades que vão ser criadas agora. O código deve ser feito após o teste e deve conter apenas a funcionalidade necessária para passar nesse teste.
 
+
+
+De o primeiro passo, é mais importante começar do que fazer o teste perfeito, ninguém vai ser 100%.
+
+Manter o foco no que está sempre mudando, criar um teste para algo que não tem nenhuma mudanças e ja esta comprovado que funciona acaba sendo perca de tempo
+
+Usar padrões de teste.
+
