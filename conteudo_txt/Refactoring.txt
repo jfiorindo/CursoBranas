@@ -1,0 +1,38 @@
+REFACTORING
+
+**Deve sempre existir um equilíbrio entre comportamento e estrutura**
+
+ninguém (dos usuários) valoriza o refactoring quanto novas funcionalidades, porém o código deve sempre estar em refatoramento também, mesmo que não seja tão notório quanto novas features. Um sistema com diversas features novas porém sem nenhum refatoramento, acaba que em algum momento o código irá ter de ser feito todo do zero para comportar tudo que foi feito. Um exemplo é um código que com 1 feature deve comportar 100 usuários, um código com 10 features deve comportar 1000, logo se o refatoramento para comportar todos esse usuários não for feito conforme as features forem desenvolvidas, no final terá de ser feito tudo novamente.
+
+Conclusão: Por mais que não seja valorizado, DEVE SER FEITO.
+
+**O que é refactoring?**
+
+É uma alteração feita na estrutura interna do software para torná-lo mais fácil de ser entendido e menos custoso de ser modificado, sem alterar seu comportamento observável
+
+é basicamente mudar a estrutura interna do software
+
+refactoring é investimento, pois torna o software sustentável e competitivo, pois se está atualizado significa que é mais facil de atualizar ainda mais, caso esteja desatualizado, é mais difícil.
+
+Sem refactoring, acaba perdendo muito tempo para adicionar novas mudanças, pois o código é mal explicado, mal escrito e acaba demorando muito para fazer qualquer alteração.
+
+SEMPRE REFATORE, toda vez que haja a possibilidade de melhora, refatore. (Primeiro tenha a técnica e depois faça, as vezes com boas intenções também acaba com o código)
+
+Um exemplo é sua casa. Se há uma limpeza semanal, porém você nunca lava a louça, nunca lava a roupa, nunca varre o chão, vai juntar mais coisas para fazer quando chegar o dia da faxina semanal. Sendo que se você sempre manter a casa em ordem, quando for ser feita a limpeza semanal, irá ser muito mais simples. Quando você não cuida de algo, essa coisa vai sempre piorando.
+
+Para evitar isso, sempre encontre 'code smells' e aplique técnicas refactoring.
+
+
+**COMO IDENTIFICAR ERROS:**
+
+Nomes estranhos de variáveis, métodos e classes (Mal definidos, ou sem sentido): Acaba demorando mais tempo para ler/entender.
+
+Excesso de ruído: Muitos comentários, acabam com a leitura do código. Códigos mortos, em que é um código comentado que talvez possa ser utilizado, mas não é necessário por conta de hoje em dia haver git. Condições confusas, entrar em muitos ifs, um dentro do outro.
+
+
+acaba que as vezes com muito tempo sem refactoring, perdemos o controle e ter que refazer tudo de novo.
+
+Muitas vezes existe um ponto de não retorno, evitar chegar lá, poderá ser muito caro e muito arriscado fazer qualquer mudança.
+
+
+por que extrair métodos: reuso, caber na tela, teste separado, explicar o trecho, fazer uma coisa mais clara.
