@@ -1,0 +1,56 @@
+E2E - Mais lendo, menos utilizado
+Integration - Médio
+Unit - Mais rápido, mais utilizado
+
+Qual a diferença entre eles?
+
+*Não existe um responsável pelos conceitos, que dite as regras dos testes*
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Unit Tests:
+
+Focar em testar componentes individuais, como classes, funções e métodos.
+São rápidos e simples de serem executados
+Usam mocks ou stubs (Mock: Focado em interações, número de chamadas, ver se a interação com outras partes funcionam corretamente, parâmetros/Stubs: Foca em fornecer dados controlados, apenas para ver se chega, basicamente)
+
+Os testes de unidade, não necessariamente unitários, podem ou não envlver mais de uma classe, método ou função e não devem ter qualquer interação com recursos externos como um banco de dados, uma API ou sistema de arquivos. Então teste de unidade é não ter dependência de nada externo, por mais que ele infrinja algum dos conceitos acima, NÃO PODE ter interação com coisas fora do código, caso haja, deixa de ser um teste de unidade.
+
+existem dois tipos de testes de unidade segud martin fowler
+
+Testes de unidade sociáveis: que são testes que se comunicam com outras classes, métodos ou funções.
+Testes de unidade solitários: que são testes que não se comunicam com outras classes, métodos ou funções, são isolados.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+*Integration tests:*
+
+Tesam componentes diferentes, pertences à camadas diferentes, normalmente envolvendo recursos externos, sendo mais lento e mais instável por fazerem I/O (Input/Output)
+
+Muitas vezes em testes de integração você vai ser obrigado a desativar interações por segurança, performance. Algo como se você testa uma atividade com pagamento, você não pode gerar uma transação para cada teste ou ficar gerando nota fiscal. Assim você consegue integra
+
+existem dois conceitos de testes de integração:
+
+Teste de integração estreito: Executa apenas partes do código, justamente pelos problemas que podem ocorrer como os citados acima, assim substitui essas integrações para virar um teste viável.
+Teste de integração amplo: Esse teste já executa tudo, então ele vai testar tudo daquilo acima, correndo o risco de dar erro, porém como ja foi testado antes em um ambiente estreito, o risco é menor. E esse teste deverá ser executado em menos recorrencia que os outros, pela grande chance de dar problema.
+
+Um teste de integração com mocks se torna um teste de unidade? 
+
+Não pois um teste de integração conversa com diversas camadas de um projeto, o teste de unidade não. O teste de integração por mais que você substitui o dado verdadeiro por um dado falso, esse teste deixa de ser o amplo e vira o teste de integração estreito, em que você bloqueia algumas chamadas por segurança, porém continua testando diferentes camadas e chamadas de fora do projeto.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------**E2E Tests**
+
+É um teste que replica o ambiente do usuário final, ou seja, são testes executados de ponta a ponta envolvendo o frontend, backend e banco de dados.
+
+Esse é um tipo de teste que depende de diversas ferramentas como Selenium, Cypress, Playwright ou variações envolvendo WebDriver ou Puppeteer.
+Diversos containers para subir as dependências, backend, frontend e fazer isso tudo funcionar
+
+Além de lentos, são frágeis e sensíveis a modificações, principalmente no frontend.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Não existe testes melhores que os outros, o ideal é ter uma combinação de TODOS eles.
+
+A combinação deles é perfeita, vamos fazer um exemplo de um carro:
+
+Teste unitário: Testar o volantes, a roda, o pneu, o câmbio.
+Teste de integração: Testar se o volante vira a roda, testar se o pneu fica preso na roda, se o câmbio passa a marcha.
+Teste E2E: Com o carro todo montado, testar se tudo funciona como se fosse o comprador, testa se tudo está integrado sem nenhum problema.
+Isso tudo a gente consegue garantir que as peças funcionam isoladas, integradas com algumas outras e também com o projeto todo montado.
+
+Não é viável alguém de QA entrar no teste de integração para dentro, pois precisa ter conhecimento sobre o código fonte, então o QA deverá entrar o mais para cima possível nessa pirâmide
